@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Users, Building2 } from "lucide-react";
 import { services } from "@/lib/content/services";
 import { company } from "@/lib/content/company";
 import { externalLinks } from "@/lib/config";
+import logoMark from "@/assets/logo-no-text.svg";
 
 const stats = [
   { value: "1:1", label: "Board Partnership" },
@@ -15,14 +17,27 @@ export default function V1Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#0a1628] text-white overflow-hidden">
+      <section className="relative bg-[#084870] text-white overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(201,168,76,0.3) 60px, rgba(201,168,76,0.3) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(201,168,76,0.3) 60px, rgba(201,168,76,0.3) 61px)",
+              "repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(24,128,168,0.3) 60px, rgba(24,128,168,0.3) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(24,128,168,0.3) 60px, rgba(24,128,168,0.3) 61px)",
           }}
         />
+        <div className="absolute left-[-240px] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
+          <div className="rounded-3xl bg-[#eaf3f5]/90 p-4">
+            <Image
+              src={logoMark}
+              alt=""
+              aria-hidden="true"
+              width={640}
+              height={322}
+              className="w-[420px] lg:w-[520px] h-auto"
+              priority
+            />
+          </div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-6 py-28 md:py-36">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
@@ -235,3 +250,4 @@ export default function V1Home() {
     </>
   );
 }
+
