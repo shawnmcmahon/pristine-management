@@ -20,7 +20,7 @@ export default function V1LenderServices() {
       </section>
 
       <section className="max-w-4xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
           <div>
             <h2 className="font-serif text-3xl font-bold text-[#0a1628] mb-6">
               Document Fulfillment via HomeWiseDocs
@@ -31,15 +31,6 @@ export default function V1LenderServices() {
             <p className="text-gray-600 leading-relaxed mb-8">
               Through HomeWiseDocs you can request resale certificates, demand statements, governing documents, meeting minutes, financial statements, and all disclosure packages required for residential transactions.
             </p>
-            <a
-              href={externalLinks.homeWiseDocs}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#c9a84c] hover:bg-[#b8943e] text-[#0a1628] font-bold px-8 py-4 transition-colors"
-            >
-              <ExternalLink size={18} />
-              Order Documents via HomeWiseDocs
-            </a>
           </div>
           <div className="bg-[#f7f5f0] p-8 border-l-4 border-[#c9a84c]">
             <h3 className="font-serif text-xl font-bold text-[#0a1628] mb-5">
@@ -64,6 +55,21 @@ export default function V1LenderServices() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="mb-16 bg-[#f7f5f0] border-2 border-[#c9a84c] p-8 md:p-10 text-center">
+          <p className="text-xs uppercase tracking-[0.25em] font-semibold text-[#0a1628]/70 mb-4">
+            Primary Ordering Portal
+          </p>
+          <a
+            href={externalLinks.homeWiseDocs}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 bg-[#c9a84c] hover:bg-[#b8943e] text-[#0a1628] font-bold px-10 py-5 text-base transition-colors"
+          >
+            <ExternalLink size={18} />
+            Order Documents via HomeWiseDocs
+          </a>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

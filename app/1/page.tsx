@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, Shield, TrendingUp, Users, Building2 } from "lucide-react";
+import { ArrowRight, Users, Building2 } from "lucide-react";
 import { services } from "@/lib/content/services";
 import { company } from "@/lib/content/company";
 import { externalLinks } from "@/lib/config";
 
 const stats = [
-  { value: "100+", label: "Communities Served" },
+  { value: "1:1", label: "Board Partnership" },
   { value: "24/7", label: "Homeowner Support" },
-  { value: "$50M+", label: "Funds Managed" },
+  { value: "Colorado", label: "Local Expertise" },
   { value: "100%", label: "Compliance Rate" },
 ];
 
