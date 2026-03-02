@@ -15,7 +15,7 @@ export default function V1HomeownerPortal() {
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold">Homeowner Portal</h1>
           <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl">
-            Access your account, make payments, submit requests, and stay connected with your community â€” all in one place.
+            Access your account, make payments, submit requests, and stay connected with your community - all in one place.
           </p>
         </div>
       </section>

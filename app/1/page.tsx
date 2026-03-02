@@ -24,23 +24,23 @@ export default function V1Home() {
               "repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(10,22,40,0.08) 60px, rgba(10,22,40,0.08) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(10,22,40,0.08) 60px, rgba(10,22,40,0.08) 61px)",
           }}
         />
-        <div className="absolute right-[20px] lg:right-[60px] xl:right-[120px] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
-          <Image
-            src="/logo-no-text.svg"
-            alt=""
-            aria-hidden="true"
-            width={640}
-            height={322}
-            className="w-[300px] lg:w-[420px] xl:w-[520px] h-auto"
-            priority
-          />
-        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-24 md:py-32 lg:py-36">
+          <div className="absolute right-0 md:right-6 lg:right-10 top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
+            <Image
+              src="/logo-no-text.svg"
+              alt=""
+              aria-hidden="true"
+              width={640}
+              height={322}
+              className="w-[300px] lg:w-[420px] xl:w-[520px] h-auto"
+              priority
+            />
+          </div>
           <div className="max-w-3xl md:max-w-[36rem] lg:max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-12 bg-[#B0B0B0]" />
               <span className="text-[#B0B0B0] text-xs uppercase tracking-[0.25em] font-semibold">
-                Colorado&apos;s Metro District Specialists
+                Colorado&apos;s Metro District and HOA Specialists
               </span>
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
