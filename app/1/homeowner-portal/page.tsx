@@ -91,7 +91,7 @@ export default function V1HomeownerPortal() {
               href="/contact"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#084870] hover:text-[#1880A8] transition-colors group-hover:text-[#1880A8]"
             >
-              Submit a Request ->
+              Submit a Request -&gt;
             </Link>
           </div>
 
@@ -110,7 +110,7 @@ export default function V1HomeownerPortal() {
               href="/contact"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#084870] hover:text-[#1880A8] transition-colors group-hover:text-[#1880A8]"
             >
-              Contact Us ->
+              Contact Us -&gt;
             </Link>
           </div>
         </div>
