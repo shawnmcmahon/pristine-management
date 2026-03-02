@@ -1,19 +1,21 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoMark from "@/assets/logo-no-text.svg";
 
 const navLinks = [
-  { href: "/1", label: "Home" },
-  { href: "/1/about", label: "About" },
-  { href: "/1/services", label: "Services" },
-  { href: "/1/faq", label: "FAQ" },
-  { href: "/1/homeowner-portal", label: "Homeowner Portal" },
-  { href: "/1/lender-services", label: "Lender Services" },
-  { href: "/1/violations", label: "Violations" },
-  { href: "/1/contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/homeowner-portal", label: "Homeowner Portal" },
+  { href: "/lender-services", label: "Lender Services" },
+  { href: "/violations", label: "Violations" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function V1Nav() {
@@ -21,15 +23,25 @@ export default function V1Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628] shadow-lg">
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#084870] shadow-lg">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-[72px]">
         {/* Logo */}
-        <Link href="/1" className="flex flex-col leading-tight">
-          <span className="font-serif text-xl font-bold text-white tracking-wide">
-            Pristine Management
-          </span>
-          <span className="text-[#c9a84c] text-[10px] uppercase tracking-[0.2em] font-medium">
-            HOA & Metro District
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 leading-tight min-w-0">
+          <Image
+            src={logoMark}
+            alt="Pristine Management logo"
+            width={42}
+            height={21}
+            priority
+            className="w-8 sm:w-[42px] h-auto shrink-0"
+          />
+          <span className="flex flex-col min-w-0">
+            <span className="font-serif text-base sm:text-xl font-bold text-white tracking-wide whitespace-nowrap">
+              Pristine Management
+            </span>
+            <span className="hidden sm:block text-[#1880A8] text-[10px] uppercase tracking-[0.2em] font-medium whitespace-nowrap">
+              HOA & Metro District
+            </span>
           </span>
         </Link>
 
@@ -42,14 +54,14 @@ export default function V1Nav() {
                 className={cn(
                   "px-3 py-1.5 text-sm font-medium transition-colors duration-200 relative group",
                   pathname === link.href
-                    ? "text-[#c9a84c]"
+                    ? "text-[#1880A8]"
                     : "text-gray-300 hover:text-white"
                 )}
               >
                 {link.label}
                 <span
                   className={cn(
-                    "absolute bottom-0 left-0 right-0 h-0.5 bg-[#c9a84c] transform transition-transform duration-200 origin-left",
+                    "absolute bottom-0 left-0 right-0 h-0.5 bg-[#1880A8] transform transition-transform duration-200 origin-left",
                     pathname === link.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   )}
                 />
@@ -60,7 +72,7 @@ export default function V1Nav() {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-white p-1.5 sm:p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -70,7 +82,7 @@ export default function V1Nav() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="lg:hidden bg-[#0d1e36] border-t border-[#1a3050] px-6 py-4">
+        <div className="lg:hidden bg-[#084070] border-t border-[#106090] px-4 sm:px-6 py-4">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -80,7 +92,7 @@ export default function V1Nav() {
                   className={cn(
                     "block px-4 py-2.5 text-sm font-medium rounded transition-colors",
                     pathname === link.href
-                      ? "bg-[#c9a84c]/10 text-[#c9a84c]"
+                      ? "bg-[#1880A8]/10 text-[#1880A8]"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   )}
                 >
@@ -94,3 +106,4 @@ export default function V1Nav() {
     </header>
   );
 }
+

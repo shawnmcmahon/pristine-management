@@ -21,22 +21,22 @@ export default function V1FAQ() {
 
   return (
     <>
-      <section className="bg-[#0a1628] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[#084870] text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
-            <span className="h-px w-12 bg-[#c9a84c]" />
-            <span className="text-[#c9a84c] text-xs uppercase tracking-[0.25em] font-semibold">
+            <span className="h-px w-12 bg-[#1880A8]" />
+            <span className="text-[#1880A8] text-xs uppercase tracking-[0.25em] font-semibold">
               Knowledge Base
             </span>
           </div>
-          <h1 className="font-serif text-5xl font-bold">Frequently Asked Questions</h1>
-          <p className="text-gray-300 mt-4 text-lg max-w-2xl">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold">Frequently Asked Questions</h1>
+          <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl">
             Clear answers to common questions about HOA management, Metro Districts, and how Pristine Management serves your community.
           </p>
         </div>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 py-20">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
         {/* Category Filter */}
         <div className="flex flex-wrap gap-2 mb-12">
           {categories.map((cat) => (
@@ -46,8 +46,8 @@ export default function V1FAQ() {
               className={cn(
                 "px-4 py-2 text-sm font-medium border transition-colors duration-200",
                 category === cat.id
-                  ? "bg-[#0a1628] text-white border-[#0a1628]"
-                  : "border-gray-300 text-gray-600 hover:border-[#c9a84c] hover:text-[#0a1628]"
+                  ? "bg-[#084870] text-white border-[#084870]"
+                  : "border-gray-300 text-gray-600 hover:border-[#1880A8] hover:text-[#084870]"
               )}
             >
               {cat.label}
@@ -63,19 +63,19 @@ export default function V1FAQ() {
                 onClick={() => setActive(active === faq.id ? null : faq.id)}
                 className="w-full flex items-center justify-between gap-4 text-left group"
               >
-                <span className="font-serif text-lg font-semibold text-[#0a1628] group-hover:text-[#c9a84c] transition-colors">
+                <span className="font-serif text-base sm:text-lg font-semibold text-[#084870] group-hover:text-[#1880A8] transition-colors">
                   {faq.question}
                 </span>
                 <ChevronDown
                   size={20}
                   className={cn(
-                    "shrink-0 text-[#c9a84c] transition-transform duration-300",
+                    "shrink-0 text-[#1880A8] transition-transform duration-300",
                     active === faq.id ? "rotate-180" : ""
                   )}
                 />
               </button>
               {active === faq.id && (
-                <div className="mt-4 pl-0 pr-8 text-gray-600 text-sm leading-relaxed border-l-2 border-[#c9a84c] pl-4">
+                <div className="mt-4 pr-0 sm:pr-8 text-gray-600 text-sm leading-relaxed border-l-2 border-[#1880A8] pl-4">
                   {faq.answer}
                 </div>
               )}
