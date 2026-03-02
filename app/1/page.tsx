@@ -24,7 +24,7 @@ export default function V1Home() {
               "repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(10,22,40,0.08) 60px, rgba(10,22,40,0.08) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(10,22,40,0.08) 60px, rgba(10,22,40,0.08) 61px)",
           }}
         />
-        <div className="absolute right-[-72px] lg:right-[20px] xl:right-[170px] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
+        <div className="absolute right-[20px] lg:right-[60px] xl:right-[120px] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
           <Image
             src="/logo-no-text.svg"
             alt=""

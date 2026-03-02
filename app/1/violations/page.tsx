@@ -143,7 +143,7 @@ export default function V1Violations() {
 
             <div>
               <label className="block text-xs uppercase tracking-wider font-semibold text-[#084870] mb-1.5">
-                Homeowners Association / Community *
+                Community / HOA *
               </label>
               <input {...register("hoaName")} className={inputClass(!!errors.hoaName)} placeholder="Sunset Ridge HOA" />
               {errors.hoaName && <p className="mt-1 text-red-500 text-xs">{errors.hoaName.message}</p>}
@@ -244,7 +244,7 @@ export default function V1Violations() {
             </button>
 
             <p className="text-xs text-gray-400 text-center">
-              Submissions are routed to compliance@pristinemanagement.com
+              Submissions are routed to beau@pristinemgmt.com
             </p>
           </form>
         )}

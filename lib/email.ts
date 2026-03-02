@@ -1,6 +1,7 @@
 import { emailConfig } from "@/lib/config";
 import type {
   ContactFormPayload,
+  FileMetadata,
   ManagementRequestPayload,
   ViolationFormPayload,
 } from "@/lib/types";
@@ -10,9 +11,13 @@ async function sendEmail(options: {
   subject: string;
   html: string;
   replyTo?: string;
+  attachments?: Array<{
+    filename: string;
+    content: string;
+  }>;
 }): Promise<{ success: boolean; error?: string }> {
   if (!emailConfig.resendApiKey) {
-    console.warn("RESEND_API_KEY not set — email not sent");
+    console.warn("RESEND_API_KEY not set - email not sent");
     return { success: true };
   }
 
@@ -25,6 +30,7 @@ async function sendEmail(options: {
       subject: options.subject,
       html: options.html,
       replyTo: options.replyTo,
+      attachments: options.attachments,
     });
     if (error) return { success: false, error: error.message };
     return { success: true };
@@ -60,7 +66,7 @@ export async function sendManagementRequestEmail(
   return sendEmail({
     to: emailConfig.managementRequestRecipient,
     replyTo: payload.email,
-    subject: `Management Request: ${payload.requestType} — ${payload.hoaName}`,
+    subject: `Management Request: ${payload.requestType} - ${payload.hoaName}`,
     html: `
       <h2>New Management Request</h2>
       <p><strong>Name:</strong> ${payload.firstName} ${payload.lastName}</p>
@@ -79,10 +85,18 @@ export async function sendManagementRequestEmail(
 export async function sendViolationEmail(
   payload: ViolationFormPayload
 ): Promise<{ success: boolean; error?: string }> {
+  const attachments =
+    payload.files
+      ?.filter((f): f is FileMetadata & { content: string } => Boolean(f.content))
+      .map((f) => ({
+        filename: f.name,
+        content: f.content,
+      })) ?? [];
+
   return sendEmail({
     to: emailConfig.violationsRecipient,
     replyTo: payload.email,
-    subject: `Violation Response: ${payload.resolution} — ${payload.hoaName}`,
+    subject: `Violation Response: ${payload.resolution} - ${payload.hoaName}`,
     html: `
       <h2>Violation Form Submission</h2>
       <p><strong>Name:</strong> ${payload.firstName} ${payload.lastName}</p>
@@ -102,5 +116,6 @@ export async function sendViolationEmail(
           : ""
       }
     `,
+    attachments,
   });
 }

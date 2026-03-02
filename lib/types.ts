@@ -39,6 +39,7 @@ export interface FileMetadata {
   name: string;
   size: number;
   type: string;
+  content?: string;
 }
 
 // ─── Contact & Management Request Forms ──────────────────────────────────────

@@ -16,11 +16,17 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
         Array.from(formData.entries()).filter(([, v]) => !(v instanceof File))
       );
       const uploadedFiles = formData.getAll("files") as File[];
-      files = uploadedFiles.map((f) => ({
-        name: f.name,
-        size: f.size,
-        type: f.type,
-      }));
+      files = await Promise.all(
+        uploadedFiles.map(async (f) => {
+          const bytes = await f.arrayBuffer();
+          return {
+            name: f.name,
+            size: f.size,
+            type: f.type,
+            content: Buffer.from(bytes).toString("base64"),
+          };
+        })
+      );
     } else {
       body = await request.json();
     }

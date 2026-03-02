@@ -10,13 +10,13 @@ export const siteConfig = {
 
 export const emailConfig = {
   violationsRecipient:
-    process.env.VIOLATIONS_EMAIL ?? "compliance@pristinemgmt.com",
+    process.env.VIOLATIONS_EMAIL ?? "beau@pristinemgmt.com",
   contactRecipient:
-    process.env.CONTACT_EMAIL ?? "compliance@pristinemgmt.com",
+    process.env.CONTACT_EMAIL ?? "beau@pristinemgmt.com",
   managementRequestRecipient:
-    process.env.MANAGEMENT_REQUEST_EMAIL ?? "compliance@pristinemgmt.com",
+    process.env.MANAGEMENT_REQUEST_EMAIL ?? "beau@pristinemgmt.com",
   fromAddress:
-    process.env.FROM_EMAIL ?? "noreply@pristinemgmt.com",
+    process.env.FROM_EMAIL ?? "beau@pristinemgmt.com",
   resendApiKey: process.env.RESEND_API_KEY ?? "",
 } as const;
 
