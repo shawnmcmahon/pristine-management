@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import V1Nav from "./1/components/Nav";
+import V1Footer from "./1/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +34,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans min-h-screen flex flex-col bg-white text-[#084870]">
+        <V1Nav />
+        <main className="flex-1 pt-16 sm:pt-[72px]">{children}</main>
+        <V1Footer />
+      </body>
     </html>
   );
 }

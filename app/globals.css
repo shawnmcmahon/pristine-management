@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --brand-primary-deep: #084070;
+    --brand-primary: #084870;
+    --brand-primary-mid: #106890;
+    --brand-accent: #1880A8;
+    --brand-accent-hover: #1078A0;
+    --brand-surface-light: #EAF3F5;
+    --brand-surface-ice: #F0FFFF;
+    --brand-silver: #B0B0B0;
+  }
+
   *, *::before, *::after {
     box-sizing: border-box;
   }
