@@ -17,9 +17,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Pristine Management — HOA & Metro District Management",
+  title: "Pristine Management - HOA & Metro District Management",
   description:
     "Professional HOA and Metro District management services across Colorado. Specializing in the unique requirements of Metropolitan Districts.",
+  icons: {
+    icon: [{ url: "/logo-no-text.svg", type: "image/svg+xml" }],
+    shortcut: ["/logo-no-text.svg"],
+    apple: ["/logo-no-text.svg"],
+  },
 };
 
 export const viewport: Viewport = {
