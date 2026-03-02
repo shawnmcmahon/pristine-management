@@ -1,11 +1,20 @@
 // ─── Environment Configuration ────────────────────────────────────────────────
 
+const fallbackEmail = "beau@pristinemgmt.com";
+const configuredPublicEmail = process.env.NEXT_PUBLIC_EMAIL?.trim();
+const safePublicEmail =
+  configuredPublicEmail &&
+  configuredPublicEmail.includes("@") &&
+  !configuredPublicEmail.startsWith("http")
+    ? configuredPublicEmail
+    : fallbackEmail;
+
 export const siteConfig = {
   name: "Pristine Management",
   tagline: "Professional HOA & Metro District Management",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pristinemgmt.com",
   phone: process.env.NEXT_PUBLIC_PHONE ?? "(303) 555-0100",
-  email: process.env.NEXT_PUBLIC_EMAIL ?? "beau@pristinemgmt.com",
+  email: safePublicEmail,
 } as const;
 
 export const emailConfig = {
