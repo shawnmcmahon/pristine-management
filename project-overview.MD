@@ -15,7 +15,7 @@ You are tasked with making a website for a company called Pristine Management. P
 
 ## Prompt
 
-Your task is to build an incredible marketing home page for this app. I want it to be creative and unique. really push the limits of your design capabilities. Once initialized I want you to create five different designs. each design should be creative and unique from all the others that you create. they should be hosted on forward slash one, /2, /3, /4 and /5 respectively.
+Your task is to build an incredible marketing home page for this app. I want it to be creative and unique. really push the limits of your design capabilities. Build and maintain a single canonical design hosted on forward slash one (`/1`).
 
 Don't use any NPCs, skills (other than the front-end design skill I mentioned), or other features in your harness. Show me your organic built-in capabilities for tasteful design. Use your front end design to make these designs exceptional.
 

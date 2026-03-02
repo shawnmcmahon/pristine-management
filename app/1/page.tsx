@@ -4,7 +4,6 @@ import { ArrowRight, Users, Building2 } from "lucide-react";
 import { services } from "@/lib/content/services";
 import { company } from "@/lib/content/company";
 import { externalLinks } from "@/lib/config";
-import logoMark from "@/assets/logo-no-text.svg";
 
 const stats = [
   { value: "1:1", label: "Board Partnership" },
@@ -27,7 +26,7 @@ export default function V1Home() {
         />
         <div className="absolute right-[-72px] lg:right-[20px] xl:right-[170px] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
           <Image
-            src={logoMark}
+            src="/logo-no-text.svg"
             alt=""
             aria-hidden="true"
             width={640}

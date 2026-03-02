@@ -1,11 +1,9 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logoMark from "@/assets/logo-no-text.svg";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -25,16 +23,7 @@ export default function V1Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#084870] shadow-lg">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-[72px]">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 leading-tight min-w-0">
-          <Image
-            src={logoMark}
-            alt="Pristine Management logo"
-            width={42}
-            height={21}
-            priority
-            className="w-8 sm:w-[42px] h-auto shrink-0"
-          />
+        <Link href="/" className="flex items-center leading-tight min-w-0">
           <span className="flex flex-col min-w-0">
             <span className="font-serif text-base sm:text-xl font-bold text-white tracking-wide whitespace-nowrap">
               Pristine Management
