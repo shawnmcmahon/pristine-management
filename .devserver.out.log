@@ -1,0 +1,16 @@
+
+> pristine-management@0.1.0 dev
+> next dev --port 3000
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.214:3000
+- Environments: .env.local
+
+✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\shawn\\Documents\\Code\\pristine-management',
+  testMode: true
+}
+✓ Ready in 606ms
+ GET / 200 in 626ms (compile: 354ms, proxy.ts: 82ms, render: 191ms)
