@@ -25,7 +25,7 @@ export const emailConfig = {
   managementRequestRecipient:
     process.env.MANAGEMENT_REQUEST_EMAIL ?? "beau@pristinemgmt.com",
   fromAddress:
-    process.env.FROM_EMAIL ?? "beau@pristinemgmt.com",
+    process.env.FROM_EMAIL ?? "onboarding@resend.dev",
   resendApiKey: process.env.RESEND_API_KEY ?? "",
 } as const;
 

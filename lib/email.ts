@@ -6,6 +6,8 @@ import type {
   ViolationFormPayload,
 } from "@/lib/types";
 
+const resendFallbackFrom = "onboarding@resend.dev";
+
 async function sendEmail(options: {
   to: string;
   subject: string;
@@ -24,7 +26,7 @@ async function sendEmail(options: {
   try {
     const { Resend } = await import("resend");
     const resend = new Resend(emailConfig.resendApiKey);
-    const { error } = await resend.emails.send({
+    const firstAttempt = await resend.emails.send({
       from: emailConfig.fromAddress,
       to: options.to,
       subject: options.subject,
@@ -32,7 +34,27 @@ async function sendEmail(options: {
       replyTo: options.replyTo,
       attachments: options.attachments,
     });
-    if (error) return { success: false, error: error.message };
+    if (!firstAttempt.error) return { success: true };
+
+    const needsFallbackFrom =
+      emailConfig.fromAddress !== resendFallbackFrom &&
+      firstAttempt.error.message.toLowerCase().includes("domain is not verified");
+
+    if (!needsFallbackFrom) {
+      return { success: false, error: firstAttempt.error.message };
+    }
+
+    const fallbackAttempt = await resend.emails.send({
+      from: resendFallbackFrom,
+      to: options.to,
+      subject: options.subject,
+      html: options.html,
+      replyTo: options.replyTo,
+      attachments: options.attachments,
+    });
+    if (fallbackAttempt.error) {
+      return { success: false, error: fallbackAttempt.error.message };
+    }
     return { success: true };
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
