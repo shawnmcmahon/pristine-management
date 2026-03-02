@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function V1Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#0a1628]">
+    <div className="min-h-screen flex flex-col bg-white text-[#084870]">
       <V1Nav />
-      <main className="flex-1 pt-[72px]">{children}</main>
+      <main className="flex-1 pt-16 sm:pt-[72px]">{children}</main>
       <V1Footer />
     </div>
   );
