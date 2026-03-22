@@ -11,7 +11,7 @@ const safePublicEmail =
 
 const fallbackPhone = "(720) 715-6655";
 const configuredPublicPhone = process.env.NEXT_PUBLIC_PHONE?.trim();
-/** Digits-only form of the old .env.example placeholder — ignore so deploys keep the real office line. */
+/** Reject the old fake 303-555-0100 placeholder so bad env values do not override the real office line. */
 const isExampleOrInvalidPhone = (value: string) => {
   const digits = value.replace(/\D/g, "");
   return digits.length < 10 || digits === "3035550100";
