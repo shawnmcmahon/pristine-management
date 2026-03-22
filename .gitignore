@@ -21,6 +21,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Local server error logs (runtime)
+.devserver.err.log
+.prodserver.err.log
+
 # OS files
 .DS_Store
 Thumbs.db
