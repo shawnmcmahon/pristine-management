@@ -9,11 +9,23 @@ const safePublicEmail =
     ? configuredPublicEmail
     : fallbackEmail;
 
+const fallbackPhone = "(720) 715-6655";
+const configuredPublicPhone = process.env.NEXT_PUBLIC_PHONE?.trim();
+/** Digits-only form of the old .env.example placeholder — ignore so deploys keep the real office line. */
+const isExampleOrInvalidPhone = (value: string) => {
+  const digits = value.replace(/\D/g, "");
+  return digits.length < 10 || digits === "3035550100";
+};
+const safePublicPhone =
+  configuredPublicPhone && !isExampleOrInvalidPhone(configuredPublicPhone)
+    ? configuredPublicPhone
+    : fallbackPhone;
+
 export const siteConfig = {
   name: "Pristine Management",
   tagline: "Professional HOA & Metro District Management",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pristinemgmt.com",
-  phone: process.env.NEXT_PUBLIC_PHONE ?? "(720) 715-6655",
+  phone: safePublicPhone,
   email: safePublicEmail,
   addressLines: [
     "1499 W 120th Ave",
