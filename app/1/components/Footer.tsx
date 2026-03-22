@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 
 export default function V1Footer() {
@@ -57,7 +57,18 @@ export default function V1Footer() {
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={14} className="text-[#1880A8] shrink-0 mt-0.5" />
-              <span>Denver Metro Area, Colorado</span>
+              <span className="leading-relaxed">
+                {siteConfig.addressLines.map((line, i) => (
+                  <span key={line}>
+                    {i > 0 && <br />}
+                    {line}
+                  </span>
+                ))}
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Clock size={14} className="text-[#1880A8] shrink-0 mt-0.5" />
+              <span>{siteConfig.availableHours}</span>
             </li>
           </ul>
         </div>

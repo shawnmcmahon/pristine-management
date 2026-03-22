@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { contactSchema, type ContactFormData } from "@/lib/schemas";
-import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 
@@ -101,7 +101,23 @@ export default function V1Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">Location</p>
-                  <p className="text-[#084870]">Denver Metro Area, Colorado</p>
+                  <p className="text-[#084870] leading-relaxed">
+                    {siteConfig.addressLines.map((line, i) => (
+                      <span key={line}>
+                        {i > 0 && <br />}
+                        {line}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-[#084870] flex items-center justify-center shrink-0">
+                  <Clock size={16} className="text-[#1880A8]" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">Available Hours</p>
+                  <p className="text-[#084870]">{siteConfig.availableHours}</p>
                 </div>
               </div>
             </div>
@@ -147,7 +163,7 @@ export default function V1Contact() {
                   </div>
                   <div>
                     <label className="block text-xs uppercase tracking-wider font-semibold text-[#084870] mb-1.5">Phone</label>
-                    <input {...register("phone")} type="tel" className={inputClass(false)} placeholder="(303) 555-0100" />
+                    <input {...register("phone")} type="tel" className={inputClass(false)} placeholder="(720) 715-6655" />
                   </div>
                 </div>
                 <div>

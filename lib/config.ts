@@ -13,8 +13,14 @@ export const siteConfig = {
   name: "Pristine Management",
   tagline: "Professional HOA & Metro District Management",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pristinemgmt.com",
-  phone: process.env.NEXT_PUBLIC_PHONE ?? "(303) 555-0100",
+  phone: process.env.NEXT_PUBLIC_PHONE ?? "(720) 715-6655",
   email: safePublicEmail,
+  addressLines: [
+    "1499 W 120th Ave",
+    "Suite 110",
+    "Westminster, CO 80234",
+  ] as const,
+  availableHours: "By Appointment Only Please Call Ahead",
 } as const;
 
 export const emailConfig = {
